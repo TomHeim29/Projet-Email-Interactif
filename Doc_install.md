@@ -17,7 +17,7 @@ ufw allow 9443
 sudo docker run -d -p 127.0.0.1:9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:2.11.1
 # --ssl --sslcert /certs/portainer.crt --sslkey /certs/portainer.key
 
-# on créé notre certificat SSL auto-signé
+# on créer notre certificat SSL auto-signé
 #openssl req -newkey rsa:2048 -nodes -keyout portainer-key.pem -x509 -days 365 -out portainer-certificate.pem
 certbot --nginx --agree-tos --redirect --hsts --staple-ocsp --email contact@projetmailamp.site -d portainer.projetmailamp.site
 
@@ -42,3 +42,8 @@ update-ca-certificates
 
 # on install Mail-in-a-Box 
 curl -s https://mailinabox.email/setup.sh | sudo bash
+
+
+
+# on configure le reverse proxy "Nginx"
+cp /etc/nginx/conf.d/local.conf /etc/nginx/conf.d/local.conf.old
