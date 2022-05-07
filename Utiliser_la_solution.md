@@ -16,5 +16,7 @@ l'interface d'administration de la solution est accessible depuis [https://box.p
 **CREER UN UTILISATEUR** 
 
 Pour créer un utilisateur, il faut se rendre sur la page d'administration  [https://box.projetmailamp.site], puis dans la partie "Mails & Users" --> "Users".
+
 Une fois dans cette partie, il suffit de créer un utilisateur avec un mot de passe contenant minimum 8 charactères (chiffres et lettre).
+
 Lorsque l'utilisateur a été créé, il suffit de se rendre sur la page de se connexion [https://projetmailamp.site] pour se connecter avec le nouvel utilisateur précédement créé. 
