@@ -119,8 +119,10 @@ Dans le bloc " www.<VOTRE_DOMAINE>" :
         }
   
  #créer un nouveau fichier appelé "<IP_SERVEUR>.conf"
+  
 ## <IP_SERVEUR>
-server {
+  
+```server {
         listen 80;
         listen [::]:80;
         server_name <IP_SERVEUR>;
@@ -145,14 +147,14 @@ server {
                 proxy_set_header X-Forwarded-For $remote_addr;
                 return 301 https://<VOTRE_DOMAINE>/mail;
         }
-}
+}```
 
 Ensuite on sauvegarde ce nouveau fichier "local.conf" avec ses redirections :
 `sudo cp /etc/nginx/conf.d/local.conf ../local.txt`
   
-#Dans le fichier /etc/nginx/conf.d/local.conf, 
-#il est conseillé de séparer le fichier en plusieurs blocs, dont un bloc est un sous domaine.
-#on découpe le fichier "local.conf" par bloc, chaque bloc étant un sous-domaine :
+Dans le fichier /etc/nginx/conf.d/local.conf, 
+il est conseillé de séparer le fichier en plusieurs blocs, dont un bloc est un sous domaine.
+on découpe le fichier "local.conf" par bloc, chaque bloc étant un sous-domaine :
 
 VOIR SCREEN
 
