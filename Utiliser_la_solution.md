@@ -32,8 +32,13 @@ boundary="----=_Part_80_1558614261.1649788279865"' --add-header 'List-Unsubscrib
 --body hello_world.html --tls --h-Subject "TEST"
 ```
 
---auth-user --> le serveur utilisé pour envoyer le mail. 
+--auth-user --> le serveur utilisé pour envoyer le mail
+
 --auth-password --> le mot de passe du serveur 
+
 --to --> le destinataire
+
 --body --> le mail avec le code AMP/HTML/Plain text que l'ont veut envoyer
+
 --h-subject --> le sujet du mail qui s'affichera à la réception 
+
