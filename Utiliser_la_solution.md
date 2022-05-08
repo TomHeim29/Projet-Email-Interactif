@@ -121,17 +121,15 @@ Content-Type: text/x-amp-html; charset="UTF-8"
 </html>
 ```
 
-Comme vous avez pu le voir ci-dessus, ce code html intègre AMP. Il sera utilisé dans le cadre d'un survey. 
-
 ***Etape 3.***
 
 Pour envoyer un mail AMP, il faut directement le faire via le serveur en ligne de commandes. Vous allez donc vous connecter avec SSH sur votre serveur, puis, il va falloir utiliser swaks en renseignant ces paramètres : 
 
 ```
-swaks --auth-user "contact@projetmailamp.site" --auth-password "motdepasseduserveur" --server "box.projetmailamp.site:587" 
---to tomheim2901@gmail.com -f contact@projetmailamp.site --add-header 'Content-Type: multipart/alternative; 
-boundary="----=_Part_80_1558614261.1649788279865"' --add-header 'List-Unsubscribe: <mailto:contact@projetmailamp.site>'
---body hello_world.html --tls --h-Subject "TEST"
+swaks --auth-user "votre_email_créé_dans_miab" --auth-password "mot_de_passe_du_mail" --server "box.projetmailamp.site:587" 
+--to email_destinataire -f contact@projetmailamp.site --add-header 'Content-Type: multipart/alternative; 
+boundary="----=_Part_80_1558614261.1649788279865"' --add-header 'List-Unsubscribe: <mailto:votre_email_créé_dans_miab>'
+--body survey.html --tls --h-Subject "survey"
 ```
 
 `--auth-user` --> le serveur utilisé pour envoyer le mail
@@ -140,7 +138,7 @@ boundary="----=_Part_80_1558614261.1649788279865"' --add-header 'List-Unsubscrib
 
 `--to` --> le destinataire
 
-`--body` --> le mail avec le code AMP/HTML/Plain text que l'ont veut envoyer
+`--body` --> le mail avec le code AMP/HTML et/ou Plain text que l'ont veut envoyer
 
 `--h-subject` --> le sujet du mail qui s'affichera à la réception 
 
