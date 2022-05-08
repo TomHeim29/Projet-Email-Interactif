@@ -22,17 +22,17 @@ Aller dans "Tableau de bord", cliquez sur le nom de votre domaine, activer le DN
 - IN A <IP>
 - IN TXT 1|www.<VOTRE_DOMAINE>
 
-#créer un sous-domaine appelé "box" qui sera redirigé vers l'ip de votre VPS, avec comme Type "A", "MX" et "TXT", respectivement :
+créer un sous-domaine appelé "box" qui sera redirigé vers l'ip de votre VPS, avec comme Type "A", "MX" et "TXT", respectivement :
 - box IN A <IP>
 - IN MX 10 box.<VOTRE_DOMAINE>.
 - box IN TXT "v=spf1 a mx ip4:<IP> ~all"
 
 
-#création d'un sous-domaine portainer
+création d'un sous-domaine portainer
 - portainer IN A <IP>
 
 
-#création des headers SPF et TXT
+création des headers SPF et TXT
 - IN TXT "v=spf1 a mx ip4:<IP> ~all" sur votre domaine
 - IN TXT "v=spf1 a mx ip4:<IP> ~all" sur votre sous-domaine "box"
 - _dmarc IN TXT "v=DMARC1; p=quarantine"
@@ -41,16 +41,16 @@ Aller dans "Tableau de bord", cliquez sur le nom de votre domaine, activer le DN
 - _dmarc.mta-sts IN TXT "v=DMARC1; p=reject"
 - _dmarc.www IN TXT "v=DMARC1; p=reject"
   
-#Rajoutez dans la zone DNS les sous-domaines "mta", pour ajouter les "id", RDV sur ce site : https://aykevl.nl/apps/mta-sts/
+Rajoutez dans la zone DNS les sous-domaines "mta", pour ajouter les "id", RDV sur ce site : https://aykevl.nl/apps/mta-sts/
 - _mta-sts IN TXT "v=STSv1; id=<ID>"
 - _smtp._tls IN TXT "v=TLSRPTv1; rua=mailto:mta-sts@<VOTRE_DOMAINE>"
 - _smtp._tls.box IN TXT "v=TLSRPTv1; rua=mailto:mta-sts@<VOTRE_DOMAINE>"
 
-#Etendez votre domaine aux sous-domaines "autoconfig" et "autodiscover", respectivement :
+Etendez votre domaine aux sous-domaines "autoconfig" et "autodiscover", respectivement :
 - autoconfig IN CNAME <VOTRE_DOMAINE>.
 - autodiscover IN CNAME <VOTRE_DOMAINE>.
 
-#Aller dans la section IP dans le panneau latéral de gauche, modifier le reverse DNS, au niveau l'ipv4, remplacer vps-xxxx par votre nom de domaine.
+Aller dans la section IP dans le panneau latéral de gauche, modifier le reverse DNS, au niveau l'ipv4, remplacer vps-xxxx par votre nom de domaine.
 
 
 
