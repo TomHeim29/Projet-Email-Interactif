@@ -209,7 +209,7 @@ Dans le cron de MIAB "/etc/cron.d/mailinabox-nightly", remplacez la dernière li
 
 permet d'afficher le DKIM généré
 `cat /home/user-data/mail/dkim/mail.txt`
-dns_update --force
+`dns_update --force`
   
 
 #    SECURISATION SSH    #
