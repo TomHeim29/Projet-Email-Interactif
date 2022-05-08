@@ -23,7 +23,7 @@ Lorsque l'utilisateur a été créé, il suffit de se rendre sur la page de se c
 
 **ENVOYER UN MAIL AMP** 
 
-***tape 1.
+***Etape 1.***
 
 En premier lieu, il faut créer un fichier dans lequel on va y mettre notre code AMP/HTML/Plain text créé, pour l'intégrer dans notre mail. Pour ce faire, vous pouvez utiliserle playground de google pour être sur que le code AMP soit correct. Voici la syntaxe d'un mail : 
 
