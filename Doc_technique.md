@@ -10,7 +10,8 @@ on ajoute notre clé SSH dans la partie "Gestion des services" depuis OVH barre 
 
 On se connecte en SSH via notre clé privée
 
-ssh ubuntu@<IP>
+ssh ubuntu@"NOTRE_IP"
+
 `sudo su`
 
 
