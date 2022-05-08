@@ -32,7 +32,7 @@ Lorsque l'utilisateur a été créé, il suffit de se rendre sur la page de se c
 
 Il faut tout d'abord s'assurer que le destinataire a un client mail compatible pour recevoir les mail AMP. 
 
-Les clients compatibles sont les suivants : Gmail, Yahoo Mail, et Mail.ru.
+Les clients compatibles sont les suivants : __Gmail__, __Yahoo Mail__, et __Mail.ru__.
 
 
 Une fois que vous êtes sur que votre client mail est bien compatible AMP, il va falloir autoriser la réception d'email dynamique provenants de votre serveur. 
