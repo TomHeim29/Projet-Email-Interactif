@@ -52,9 +52,9 @@ Aller dans "Tableau de bord", cliquez sur le nom de votre domaine, activer le DN
 
 
 
-#####################################
+
 #    INSTALLATION MAIL-IN-A-BOX        #
-#####################################
+
 # on install Mail-in-a-Box (voir comment l'installer sous docker)
 curl -s https://mailinabox.email/setup.sh | sudo bash
 
@@ -95,9 +95,9 @@ Si vous revenez dans longlet System > Status Checks tout est passé au vert au n
 
 
 
-#####################################
+
 #    CREATION REDIRECTON NGINX        #
-#####################################
+
 #on fait une sauvegarde du fichier de conf de NGINX
 cp /etc/nginx/conf.d/local.conf /etc/nginx/conf.d/local.conf.old
 
@@ -183,9 +183,9 @@ sudo systemctl restart nginx.service
 
 
 
-#####################################
+
 #    IMPORTATION CERTIFICAT TLS         #
-#####################################
+
 # on l'importe dans le magasin des certificats du serveur pour que le cadenas devienne vert même en auto-signé
 #cp ../user-data/ssl/box.projetmailamp.site-selfsigned-20220314.pem /usr/local/share/ca-certificates/
 #cd /usr/local/share/ca-certificates/
@@ -197,9 +197,9 @@ cd /usr/local/share/ca-certificates/
 chmod 600 *
 update-ca-certificates
   
-#####################################
+
 #    REMPLACER CRON MIAB                #
-#####################################
+
 Description de la commande qui suit :
 - De base MiaB, update le local.conf tous les jours à 3h49 et les redirections sont HS, donc :
     - Tous les 3 mois à 3h30 - lorsque les certificats doivent être renouvelés
@@ -215,9 +215,9 @@ Dans le cron de MIAB "/etc/cron.d/mailinabox-nightly", remplacez la dernière li
 cat /home/user-data/mail/dkim/mail.txt
 dns_update --force
   
-#########################
+
 #    SECURISATION SSH    #
-#########################
+
 #on backup le fichier de conf sshd_config
 cp /etc/ssh/sshd_config /etc/ssh/sshd_config.old
 
