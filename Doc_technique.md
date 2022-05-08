@@ -251,5 +251,5 @@ on active le port 2222 sur le firewall
 `ufw allow 2222`
 
 
-#envoi d'email avec swaks
+# ENVOIE D'EMAIL AVEC SWAKS #
 `swaks --auth-user "contact@<VOTRE_DOMAINE>" --auth-password "password_email" --server "box.projetmailamp.site:587" -f contact@<VOTRE_DOMAINE> --add-header 'Content-Type: multipart/alternative; boundary="----=_Part_80_1558614261.1649788279865"' --add-header 'List-Unsubscribe: <mailto:contact@<VOTRE_DOMAINE>>' --body survey.html --tls --h-Subject "Email AMP" --to <EMAIL_DESTINATAIRE>`
