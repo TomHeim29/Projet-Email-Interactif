@@ -3,14 +3,14 @@ DOC TECHNIQUE PROJET
 Vous devez avoir Ubuntu 18.04 fraîchement installé !
 
 #Génèrez votre clé SSH : 
-ssh-keygen -t rsa -b 4096
+`ssh-keygen -t rsa -b 4096`
 
 #On achète un VPS chez OVH, on installe notre environnement Linux "Ubuntu 18.04" fraîchement installé OBLIGATOIREMENT,
 #on ajoute notre clé SSH dans la partie "Gestion des services" depuis OVH barre latéral de droite
 #On se connecte en SSH via notre clé privée
 
 ssh ubuntu@<IP>
-sudo su
+`sudo su`
 
 #####################################
 #    CONFIGURATION ZONE DNS OVH        #
