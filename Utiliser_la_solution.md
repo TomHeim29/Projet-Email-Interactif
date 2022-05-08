@@ -23,9 +23,15 @@ Lorsque l'utilisateur a été créé, il suffit de se rendre sur la page de se c
 
 **ENVOYER UN MAIL AMP** 
 
-***Etape 1.***
+***Etape1.***
 
-En premier lieu, il faut créer un fichier dans lequel on va y mettre notre code AMP/HTML/Plain text créé, pour l'intégrer dans notre mail. Pour ce faire, vous pouvez utiliserle playground de google pour être sur que le code AMP soit correct. Voici la syntaxe d'un mail : 
+Il faut tout d'abord s'assurer que le destinataire a un client mail compatible pour recevoir les mail AMP. Les clients compatibles sont les suivants : Gmail, Yahoo Mail, et Mail.ru.
+Une fois que vous êtes sur que votre client mail est bien compatible AMP, il va falloir autoriser la réception d'email dynamique provenants de votre serveur. 
+Quand tout ceci est fait, vous pouvez passer à la prochaine étape.
+
+***Etape 2.***
+
+Il faut ensuite créer un fichier dans lequel on va y mettre notre code AMP/HTML/Plain text créé, pour l'intégrer dans notre mail. Pour ce faire, vous pouvez utiliserle playground de google pour être sur que le code AMP soit correct. Voici la syntaxe d'un mail avec le language AMP. Ceci est un exemple pour le survey.
 
 ```html
 ------=_Part_80_1558614261.1649788279865
@@ -106,9 +112,11 @@ Content-Type: text/x-amp-html; charset="UTF-8"
 </html>
 ```
 
-*Etape 2.*
+Comme vous avez pu le voir ci-dessus, ce code html intègre AMP. Il sera utilisé dans le cadre d'un survey. 
 
-Pour envoyer un mail AMP, il faut se connetcer en SSH au serveur en tant qu'administrateur. Ensuite, il faut utiliser swaks en renseignant ces paramètres : 
+***Etape 3.***
+
+Pour envoyer un mail AMP, il faut directement le faire via le serveur en ligne de commandes. Vous allez donc vous connecter avec SSH sur votre serveur, puis, il va falloir utiliser swaks en renseignant ces paramètres : 
 
 ```
 swaks --auth-user "contact@projetmailamp.site" --auth-password "motdepasseduserveur" --server "box.projetmailamp.site:587" 
@@ -127,3 +135,11 @@ boundary="----=_Part_80_1558614261.1649788279865"' --add-header 'List-Unsubscrib
 
 `--h-subject` --> le sujet du mail qui s'affichera à la réception 
 
+Vous faites entrer pour envoyer le mail ! 
+
+***Etape 4.***
+
+Quand le mail a été envoyé, vous pouvez vous assurer de sa réception en allant directement voir dans la boite mail indiqué comme destinataire. 
+
+Il a y aura deux cas de figures. Premièrement, vous avec bien reçu le mail, et la partie dynamique AMP fonctionne correctement.
+Deuxièmement, vous avec bien reçu le mail, mais malheureusement, la partie dynamique AMP ne fonctionne pas et vous avec donc un mesage d'erreur `INVALID_AMP`. Cela veut dire que votre code AMP intégré dans le mail est incorrect. Il va donc falloir vérifier à nouveau votre code AMP, le corriger, puis réésayer. 
