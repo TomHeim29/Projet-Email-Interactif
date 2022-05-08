@@ -108,14 +108,15 @@ Dans le bloc "www.<VOTRE_DOMAINE>" :
 - ligne 929, remplacez la ligne entière par "rewrite ^/$ https://<VOTRE_DOMAINE>/mail permanent;"
 
 - Ensuite ajoutez le bloc suivant (entre la ligne 929 et 930) :
-        location / {
+  
+        ```location / {
                 # Redirect using the 'return' directive and the built-in
                 # variable '$request_uri' to avoid any capturing, matching
                 # or evaluation of regular expressions.
                 proxy_set_header X-Forwarded-For $remote_addr;
                 return 301 https://<VOTRE_DOMAINE>/mail;
         }
-  
+```
 créer un nouveau fichier appelé "<IP_SERVEUR>.conf"
   
 ## <IP_SERVEUR>
