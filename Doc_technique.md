@@ -101,7 +101,8 @@ Dans le fichier "box.<VOTRE_DOMAINE>", dans la partie HTTP :
         }
 ```
 
-Dans le bloc " www.<VOTRE_DOMAINE>" :
+Dans le bloc "www.<VOTRE_DOMAINE>" :
+  
 - ligne 890, commentez la ligne
 - ligne 900, supprimez "www" devant le nom de domaine et remplacez "$request_uri" par "/mail"
 - ligne 929, remplacez la ligne entière par "rewrite ^/$ https://<VOTRE_DOMAINE>/mail permanent;"
