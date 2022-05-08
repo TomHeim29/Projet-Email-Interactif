@@ -150,5 +150,10 @@ Vous faites entrer pour envoyer le mail !
 
 Quand le mail a été envoyé, vous pouvez vous assurer de sa réception en allant directement voir dans la boite mail indiqué comme destinataire. 
 
-Il a y aura deux cas de figures. Premièrement, vous avec bien reçu le mail, et la partie dynamique AMP fonctionne correctement.
-Deuxièmement, vous avec bien reçu le mail, mais malheureusement, la partie dynamique AMP ne fonctionne pas et vous avec donc un mesage d'erreur `INVALID_AMP`. Cela veut dire que votre code AMP intégré dans le mail est incorrect. Il va donc falloir vérifier à nouveau votre code AMP, le corriger, puis réésayer. 
+Il a y aura deux cas de figures.
+
+Premièrement, vous avec bien reçu le mail, et la partie dynamique AMP fonctionne correctement.
+
+Deuxièmement, vous avec bien reçu le mail, mais malheureusement, la partie dynamique AMP ne fonctionne pas et vous avec donc un mesage d'erreur `INVALID_AMP`. 
+
+Cela veut dire que votre code AMP intégré dans le mail est incorrect. Il va donc falloir vérifier à nouveau votre code AMP, le corriger, puis réésayer. 
