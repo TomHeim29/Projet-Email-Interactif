@@ -62,7 +62,7 @@ Aller dans la section IP dans le panneau latéral de gauche, modifier le reverse
 
 
 ## Partie sécurité
-#on commente la bannière
+on commente la bannière
 `sed -i "10 s/smtpd_banner/#smtpd_banner/g" /etc/postfix/main.cf`
 `systemctl restart postfix`
 
@@ -76,31 +76,21 @@ Rendez-vous sur box.<VOTRE_DOMAINE>/admin, et connectez-vous avez l'email et mot
 Esuite vous allez dans l'onglet System > Status check, pour vérifier que vous avez à peu près tout en vert ou jaune.
 Cliquez sur à droite sur "Enable New-Version Check" pour mettre à jour MiaB, rebooter le système.
 
-#Vous devez récupérer la clé public de l'entête DKIM de MiaB :
+Vous devez récupérer la clé public de l'entête DKIM de MiaB :
 - `less /home/user-data/mail/dkim/mail.txt`
 
 Ensuite revenez dans la Zone DNS de OVH :
 - `mail._domainkey IN TXT "<v=;h=;k=;s=>;p=<concat_2_clés>"`
 
-
-
-#RDV sur le dashboard du sous-domaine "box", onglet "system > TLS Certificates pour mettre à jour les certificats TLS de tous les sous-domaines :
+RDV sur le dashboard du sous-domaine "box", onglet "system > TLS Certificates pour mettre à jour les certificats TLS de tous les sous-domaines :
 Cliquez sur "Provision", MiaB va installer les certificats à l'aide de letsencryt, tous les certificats peuvent ne pas être installés, clqiuez à nouveau dessus pour que tous les sous-domaines passent au vert (voir screen).
 
 Si vous revenez dans longlet System > Status Checks tout est passé au vert au niveau des erreurs TLS.
 
 
-
-
-
-
-
-
-
-
 #    CREATION REDIRECTON NGINX        #
 
-#on fait une sauvegarde du fichier de conf de NGINX
+on fait une sauvegarde du fichier de conf de NGINX
 `cp /etc/nginx/conf.d/local.conf /etc/nginx/conf.d/local.conf.old`
 
 
@@ -157,7 +147,7 @@ server {
         }
 }
 
-#Ensuite on sauvegarde ce nouveau fichier "local.conf" avec ses redirections :
+Ensuite on sauvegarde ce nouveau fichier "local.conf" avec ses redirections :
 `sudo cp /etc/nginx/conf.d/local.conf ../local.txt`
   
 #Dans le fichier /etc/nginx/conf.d/local.conf, 
