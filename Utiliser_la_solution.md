@@ -25,6 +25,6 @@ Lorsque l'utilisateur a été créé, il suffit de se rendre sur la page de se c
 
 Pour envoyer un mail AMP, il faut se connetcer en SSH au serveur en tant qu'administrateur. Ensuite, il faut utiliser swaks en renseignant ces paramètres : 
 
-#####
+```
 swaks --auth-user "contact@projetmailamp.site" --auth-password "Br8wCeuDS]|a~5#9Z72^" --server "box.projetmailamp.site:587" --to tomheim2901@gmail.com -f contact@projetmailamp.site --add-header 'Content-Type: multipart/alternative; boundary="----=_Part_80_1558614261.1649788279865"' --add-header 'List-Unsubscribe: <mailto:contact@projetmailamp.site>' --body hello_world.html --tls --h-Subject "TEST"
-
+```
