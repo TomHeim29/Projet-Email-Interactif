@@ -17,7 +17,7 @@ ssh ubuntu@"NOTRE_IP"
 
 #    CONFIGURATION ZONE DNS OVH        #
 
-Aller dans "Tableau de bord", cliquez sur le nom de votre domaine, activer le DNSSEC, puis zone DNS, créer les entrées DNS de votre domaine :
+Aller dans "Tableau de bord", cliquez sur le nom de votre domaine, activer le DNSSEC, puis zone DNS, créez les entrées DNS de votre domaine :
 - www IN A <IP>
 - IN A <IP>
 - IN TXT 1|www.<VOTRE_DOMAINE>
@@ -28,7 +28,7 @@ créer un sous-domaine appelé "box" qui sera redirigé vers l'ip de votre VPS, 
 - box IN TXT "v=spf1 a mx ip4:<IP> ~all"
 
 
-création d'un sous-domaine portainer
+création d'un sous-domaine "portainer"
 - portainer IN A <IP>
 
 
@@ -50,7 +50,7 @@ Etendez votre domaine aux sous-domaines "autoconfig" et "autodiscover", respecti
 - autoconfig IN CNAME <VOTRE_DOMAINE>.
 - autodiscover IN CNAME <VOTRE_DOMAINE>.
 
-Aller dans la section IP dans le panneau latéral de gauche, modifier le reverse DNS, au niveau l'ipv4, remplacer vps-xxxx par votre nom de domaine.
+Allez dans la section IP dans le panneau latéral de gauche, modifiez le reverse DNS, au niveau l'ipv4, remplacez vps-xxxx par votre nom de domaine.
 
 
 
@@ -74,7 +74,7 @@ Rendez-vous sur box.<VOTRE_DOMAINE>/admin, et connectez-vous avez l'email et mot
 
 
 Esuite vous allez dans l'onglet System > Status check, pour vérifier que vous avez à peu près tout en vert ou jaune.
-Cliquez sur à droite sur "Enable New-Version Check" pour mettre à jour MiaB, rebooter le système.
+Cliquez à droite sur "Enable New-Version Check" pour mettre à jour MiaB, rebooter le système.
 
 Vous devez récupérer la clé public de l'entête DKIM de MiaB :
 - `less /home/user-data/mail/dkim/mail.txt`
