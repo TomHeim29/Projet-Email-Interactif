@@ -186,16 +186,23 @@ VOIR SCREEN
 
 #    IMPORTATION CERTIFICAT TLS         #
 
-# on l'importe dans le magasin des certificats du serveur pour que le cadenas devienne vert même en auto-signé
-#cp ../user-data/ssl/box.projetmailamp.site-selfsigned-20220314.pem /usr/local/share/ca-certificates/
-#cd /usr/local/share/ca-certificates/
-#mv box.projetmailamp.site-selfsigned-20220314.pem box.projetmailamp.site-selfsigned-20220314.crt
+ on l'importe dans le magasin des certificats du serveur pour que le cadenas devienne vert même en auto-signé
+  
+`cp ../user-data/ssl/box.projetmailamp.site-selfsigned-20220314.pem /usr/local/share/ca-certificates/`
+  
+`cd /usr/local/share/ca-certificates/`
+  
+`mv box.projetmailamp.site-selfsigned-20220314.pem box.projetmailamp.site-selfsigned-20220314.crt`
 
-cp /etc/letsencrypt/live/box.projetmailamp.site/* /usr/local/share/ca-certificates/
-mv portainer-CA.crt box.projetmailamp.site.crt
-cd /usr/local/share/ca-certificates/
-chmod 600 *
-update-ca-certificates
+`cp /etc/letsencrypt/live/box.projetmailamp.site/* /usr/local/share/ca-certificates/`
+  
+`mv portainer-CA.crt box.projetmailamp.site.crt`
+  
+`cd /usr/local/share/ca-certificates/`
+  
+`chmod 600 *`
+  
+`update-ca-certificates`
   
 
 #    REMPLACER CRON MIAB                #
@@ -212,38 +219,38 @@ Dans le cron de MIAB "/etc/cron.d/mailinabox-nightly", remplacez la dernière li
 30 03 01 */3 *  root    (cd /root/mailinabox && management/daily_tasks.sh) && cp /etc/nginx/local.txt /etc/nginx/conf.d/local.conf && apt update -y && apt upgrade -y
 
 # permet d'afficher le DKIM généré
-cat /home/user-data/mail/dkim/mail.txt
+`cat /home/user-data/mail/dkim/mail.txt`
 dns_update --force
   
 
 #    SECURISATION SSH    #
 
 #on backup le fichier de conf sshd_config
-cp /etc/ssh/sshd_config /etc/ssh/sshd_config.old
+`cp /etc/ssh/sshd_config /etc/ssh/sshd_config.old`
 
 
 #on ajoute le protocole SSHv2
-echo "Protocol 2" >> /etc/ssh/sshd_config
+`echo "Protocol 2" >> /etc/ssh/sshd_config`
 
 #on modifie le port SSH 22 en 2222
-sed -i "13 s/#Port 22/Port 2222/g" /etc/ssh/sshd_config
+`sed -i "13 s/#Port 22/Port 2222/g" /etc/ssh/sshd_config`
 
 
 #on désactive l’utilisateur root en SSH
-sed -i "32 s/#PermitRootLogin prohibit-password/PermitRootLogin no/g" /etc/ssh/sshd_config
+`sed -i "32 s/#PermitRootLogin prohibit-password/PermitRootLogin no/g" /etc/ssh/sshd_config`
 
 #on désactive l'authentification par password
-sed -i "56 s/PasswordAuthentication yes/PasswordAuthentication no/g" /etc/ssh/sshd_config
+`sed -i "56 s/PasswordAuthentication yes/PasswordAuthentication no/g" /etc/ssh/sshd_config`
 
 
 #on met décommente la ligne 33 "StrictModes yes"
-sed -i "33 s/#StrictModes yes//g" /etc/ssh/sshd_config
-systemctl restart sshd.service
+`sed -i "33 s/#StrictModes yes//g" /etc/ssh/sshd_config`
+`systemctl restart sshd.service`
 
 
 #on active le port 2222 sur le firewall
-ufw allow 2222
+`ufw allow 2222`
 
 
 #envoi d'email avec swaks
-swaks --auth-user "contact@<VOTRE_DOMAINE>" --auth-password "password_email" --server "box.projetmailamp.site:587" -f contact@<VOTRE_DOMAINE> --add-header 'Content-Type: multipart/alternative; boundary="----=_Part_80_1558614261.1649788279865"' --add-header 'List-Unsubscribe: <mailto:contact@<VOTRE_DOMAINE>>' --body survey.html --tls --h-Subject "Email AMP" --to <EMAIL_DESTINATAIRE>
+`swaks --auth-user "contact@<VOTRE_DOMAINE>" --auth-password "password_email" --server "box.projetmailamp.site:587" -f contact@<VOTRE_DOMAINE> --add-header 'Content-Type: multipart/alternative; boundary="----=_Part_80_1558614261.1649788279865"' --add-header 'List-Unsubscribe: <mailto:contact@<VOTRE_DOMAINE>>' --body survey.html --tls --h-Subject "Email AMP" --to <EMAIL_DESTINATAIRE>`
