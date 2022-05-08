@@ -1,4 +1,4 @@
-DOC TECHNIQUE PROJET
+# DOC TECHNIQUE PROJET #
 
 Vous devez avoir Ubuntu 18.04 fraîchement installé !
 
