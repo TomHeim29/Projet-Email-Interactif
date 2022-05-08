@@ -12,9 +12,9 @@ Vous devez avoir Ubuntu 18.04 fraîchement installé !
 ssh ubuntu@<IP>
 `sudo su`
 
-#####################################
+
 #    CONFIGURATION ZONE DNS OVH        #
-#####################################
+
 Aller dans "Tableau de bord", cliquez sur le nom de votre domaine, activer le DNSSEC, puis zone DNS, créer les entrées DNS de votre domaine :
 - www IN A <IP>
 - IN A <IP>
