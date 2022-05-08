@@ -56,13 +56,13 @@ Aller dans "Tableau de bord", cliquez sur le nom de votre domaine, activer le DN
 #    INSTALLATION MAIL-IN-A-BOX        #
 
 # on install Mail-in-a-Box (voir comment l'installer sous docker)
-curl -s https://mailinabox.email/setup.sh | sudo bash
+`curl -s https://mailinabox.email/setup.sh | sudo bash`
 
 
 ## Partie sécurité
 #on commente la bannière
-sed -i "10 s/smtpd_banner/#smtpd_banner/g" /etc/postfix/main.cf
-systemctl restart postfix
+`sed -i "10 s/smtpd_banner/#smtpd_banner/g" /etc/postfix/main.cf`
+`systemctl restart postfix`
 
 
 Renseignez l'email du nom de domaine, le nom de domaine "box" et les fuseaux horaires afin que l'infra de MiaB s'installe correctement.
@@ -75,10 +75,10 @@ Esuite vous allez dans l'onglet System > Status check, pour vérifier que vous a
 Cliquez sur à droite sur "Enable New-Version Check" pour mettre à jour MiaB, rebooter le système.
 
 #Vous devez récupérer la clé public de l'entête DKIM de MiaB :
-- less /home/user-data/mail/dkim/mail.txt
+- `less /home/user-data/mail/dkim/mail.txt`
 
 Ensuite revenez dans la Zone DNS de OVH :
-- mail._domainkey IN TXT "<v=;h=;k=;s=>;p=<concat_2_clés>"
+- `mail._domainkey IN TXT "<v=;h=;k=;s=>;p=<concat_2_clés>"`
 
 
 
@@ -99,7 +99,7 @@ Si vous revenez dans longlet System > Status Checks tout est passé au vert au n
 #    CREATION REDIRECTON NGINX        #
 
 #on fait une sauvegarde du fichier de conf de NGINX
-cp /etc/nginx/conf.d/local.conf /etc/nginx/conf.d/local.conf.old
+`cp /etc/nginx/conf.d/local.conf /etc/nginx/conf.d/local.conf.old`
 
 
 Dans le fichier "box.<VOTRE_DOMAINE>", dans la partie HTTP :
@@ -156,7 +156,7 @@ server {
 }
 
 #Ensuite on sauvegarde ce nouveau fichier "local.conf" avec ses redirections :
-sudo cp /etc/nginx/conf.d/local.conf ../local.txt
+`sudo cp /etc/nginx/conf.d/local.conf ../local.txt`
   
 #Dans le fichier /etc/nginx/conf.d/local.conf, 
 #il est conseillé de séparer le fichier en plusieurs blocs, dont un bloc est un sous domaine.
@@ -164,18 +164,18 @@ sudo cp /etc/nginx/conf.d/local.conf ../local.txt
 
 VOIR SCREEN
 
-touch <IP_SERVEUR>.conf
-touch www.<VOTRE_DOMAINE>.conf
-touch box.<VOTRE_DOMAINE>.conf
+`touch <IP_SERVEUR>.conf`
+`touch www.<VOTRE_DOMAINE>.conf`
+`touch box.<VOTRE_DOMAINE>.conf`
 
-touch autoconfig.<VOTRE_DOMAINE>.conf
-touch autodiscover.<VOTRE_DOMAINE>.conf
-touch mta-sts.<VOTRE_DOMAINE>.conf
-touch mta-sts.box.<VOTRE_DOMAINE>.conf
+`touch autoconfig.<VOTRE_DOMAINE>.conf`
+`touch autodiscover.<VOTRE_DOMAINE>.conf`
+`touch mta-sts.<VOTRE_DOMAINE>.conf`
+`touch mta-sts.box.<VOTRE_DOMAINE>.conf`
 
 
-sudo chmod 664 /etc/nginx/conf.d/*
-sudo systemctl restart nginx.service
+`sudo chmod 664 /etc/nginx/conf.d/*`
+`sudo systemctl restart nginx.service`
 
 
 
