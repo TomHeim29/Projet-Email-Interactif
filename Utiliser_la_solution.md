@@ -20,7 +20,7 @@ l'interface d'administration de la solution est accessible depuis [https://box.p
 
 Pour créer un utilisateur, il faut se rendre sur la page d'administration  [https://box.projetmailamp.site], puis dans la partie "Mails & Users" --> "Users".
 
-Une fois dans cette partie, il suffit de créer un utilisateur avec un mot de passe contenant minimum 8 charactères (chiffres et lettre).
+Une fois dans cette partie, il suffit de créer un utilisateur avec un mot de passe contenant minimum 8 charactères (chiffres et lettres).
 
 Lorsque l'utilisateur a été créé, il suffit de se rendre sur la page de se connexion [https://projetmailamp.site] pour se connecter avec le nouvel utilisateur précédement créé. 
 
@@ -35,12 +35,12 @@ Il faut tout d'abord s'assurer que le destinataire a un client mail compatible p
 Les clients compatibles sont les suivants : __Gmail__, __Yahoo Mail__, et __Mail.ru__.
 
 
-Une fois que vous êtes sur que votre client mail est bien compatible AMP, il va falloir autoriser la réception d'email dynamique provenants de votre serveur. 
+Une fois que vous êtes sûr que votre client mail est bien compatible AMP, il va falloir autoriser la réception d'email dynamique provenants de votre serveur. 
 Quand tout ceci est fait, vous pouvez passer à la prochaine étape.
 
 ***Etape 2.***
 
-Il faut ensuite créer un fichier dans lequel on va y mettre notre code AMP/HTML/Plain text créé, pour l'intégrer dans notre mail. Pour ce faire, vous pouvez utiliser le playground de google pour être sur que le code AMP soit correct. Voici la syntaxe d'un mail avec le language AMP. Ceci est un exemple pour le survey.
+Il faut ensuite créer un fichier dans lequel on va y mettre notre code AMP/HTML et/ou Plain text text créé, pour l'intégrer dans notre mail. Pour ce faire, vous pouvez utiliser le playground de google [] pour être sur que le code AMP soit correct. Voici la syntaxe d'un mail avec le language AMP. Ceci est un exemple pour le survey.
 
 ```html
 ------=_Part_80_1558614261.1649788279865
@@ -123,7 +123,7 @@ Content-Type: text/x-amp-html; charset="UTF-8"
 
 ***Etape 3.***
 
-Pour envoyer un mail AMP, il faut directement le faire via le serveur en ligne de commandes. Vous allez donc vous connecter avec SSH sur votre serveur, puis, il va falloir utiliser swaks en renseignant ces paramètres : 
+Pour envoyer un mail AMP, il faut directement le faire via le serveur en ligne de commandes, si votre client mail n'est pas compatible. Vous allez donc vous connecter avec SSH sur votre serveur, puis, il va falloir utiliser swaks en renseignant ces paramètres : 
 
 ```
 swaks --auth-user "votre_email_créé_dans_miab" --auth-password "mot_de_passe_du_mail" --server "box.projetmailamp.site:587" 
@@ -150,8 +150,8 @@ Quand le mail a été envoyé, vous pouvez vous assurer de sa réception en alla
 
 Il a y aura deux cas de figures.
 
-Premièrement, vous avec bien reçu le mail, et la partie dynamique AMP fonctionne correctement.
+Premièrement, vous avez bien reçu le mail, et la partie dynamique AMP fonctionne correctement.
 
-Deuxièmement, vous avec bien reçu le mail, mais malheureusement, la partie dynamique AMP ne fonctionne pas et vous avec donc un mesage d'erreur `INVALID_AMP`. 
+Deuxièmement, vous avez bien reçu le mail, mais malheureusement, la partie dynamique AMP ne fonctionne pas et vous avec donc un mesage d'erreur `INVALID_AMP`. 
 
-Cela veut dire que votre code AMP intégré dans le mail est incorrect. Il va donc falloir vérifier à nouveau votre code AMP, le corriger, puis réésayer. 
+Cela veut dire que votre code AMP intégré dans le mail est incorrect. Il va donc falloir vérifier à nouveau votre code AMP, le corriger, puis rééssayer. 
