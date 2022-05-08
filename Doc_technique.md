@@ -215,29 +215,37 @@ permet d'afficher le DKIM généré
 #    SECURISATION SSH    #
 
 on backup le fichier de conf sshd_config
+  
 `cp /etc/ssh/sshd_config /etc/ssh/sshd_config.old`
 
 
 on ajoute le protocole SSHv2
+  
 `echo "Protocol 2" >> /etc/ssh/sshd_config`
 
 on modifie le port SSH 22 en 2222
+  
 `sed -i "13 s/#Port 22/Port 2222/g" /etc/ssh/sshd_config`
 
 
 on désactive l’utilisateur root en SSH
+  
 `sed -i "32 s/#PermitRootLogin prohibit-password/PermitRootLogin no/g" /etc/ssh/sshd_config`
 
 on désactive l'authentification par password
+  
 `sed -i "56 s/PasswordAuthentication yes/PasswordAuthentication no/g" /etc/ssh/sshd_config`
 
 
 on met décommente la ligne 33 "StrictModes yes"
+  
 `sed -i "33 s/#StrictModes yes//g" /etc/ssh/sshd_config`
+  
 `systemctl restart sshd.service`
 
 
 on active le port 2222 sur le firewall
+  
 `ufw allow 2222`
 
 
