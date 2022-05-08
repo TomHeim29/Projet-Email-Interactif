@@ -165,23 +165,22 @@ server {
 VOIR SCREEN
 
 `touch <IP_SERVEUR>.conf`
+  
 `touch www.<VOTRE_DOMAINE>.conf`
+  
 `touch box.<VOTRE_DOMAINE>.conf`
 
 `touch autoconfig.<VOTRE_DOMAINE>.conf`
+  
 `touch autodiscover.<VOTRE_DOMAINE>.conf`
+  
 `touch mta-sts.<VOTRE_DOMAINE>.conf`
+  
 `touch mta-sts.box.<VOTRE_DOMAINE>.conf`
 
-
 `sudo chmod 664 /etc/nginx/conf.d/*`
+  
 `sudo systemctl restart nginx.service`
-
-
-
-
-
-
 
 
 #    IMPORTATION CERTIFICAT TLS         #
