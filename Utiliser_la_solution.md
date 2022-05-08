@@ -40,7 +40,7 @@ Quand tout ceci est fait, vous pouvez passer à la prochaine étape.
 
 ***Etape 2.***
 
-Il faut ensuite créer un fichier dans lequel on va y mettre notre code AMP/HTML/Plain text créé, pour l'intégrer dans notre mail. Pour ce faire, vous pouvez utiliserle playground de google pour être sur que le code AMP soit correct. Voici la syntaxe d'un mail avec le language AMP. Ceci est un exemple pour le survey.
+Il faut ensuite créer un fichier dans lequel on va y mettre notre code AMP/HTML/Plain text créé, pour l'intégrer dans notre mail. Pour ce faire, vous pouvez utiliser le playground de google pour être sur que le code AMP soit correct. Voici la syntaxe d'un mail avec le language AMP. Ceci est un exemple pour le survey.
 
 ```html
 ------=_Part_80_1558614261.1649788279865
