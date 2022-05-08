@@ -98,11 +98,12 @@ Dans le fichier "box.<VOTRE_DOMAINE>", dans la partie HTTP :
 - ligne 23, commentez la ligne "root"
 - ligne 33, remplacez "$request_uri" par "/admin"
 - ligne 61, rajoutez le bloc suivant (ATTENTION AUX INDENTATIONS) :
-location / {
+  
+```location / {
                 proxy_set_header X-Forwarded-For $remote_addr;
                 return 301 https://box.<VOTRE_DOMAINE>/admin;
         }
-
+```
 
 Dans le bloc " www.<VOTRE_DOMAINE>" :
 - ligne 890, commentez la ligne
@@ -147,7 +148,8 @@ server {
                 proxy_set_header X-Forwarded-For $remote_addr;
                 return 301 https://<VOTRE_DOMAINE>/mail;
         }
-}```
+}
+```
 
 Ensuite on sauvegarde ce nouveau fichier "local.conf" avec ses redirections :
 `sudo cp /etc/nginx/conf.d/local.conf ../local.txt`
