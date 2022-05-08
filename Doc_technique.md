@@ -12,8 +12,6 @@ On se connecte en SSH via notre clé privée
 
 ssh ubuntu@<NOTRE_IP>
 
-`sudo su`
-
 
 #    CONFIGURATION ZONE DNS OVH        #
 
@@ -51,8 +49,6 @@ Etendez votre domaine aux sous-domaines "autoconfig" et "autodiscover", respecti
 - autodiscover IN CNAME <VOTRE_DOMAINE>.
 
 Allez dans la section IP dans le panneau latéral de gauche, modifiez le reverse DNS, au niveau l'ipv4, remplacez vps-xxxx par votre nom de domaine.
-
-
 
 
 #    INSTALLATION MAIL-IN-A-BOX        #
@@ -119,7 +115,7 @@ Dans le bloc " www.<VOTRE_DOMAINE>" :
                 return 301 https://<VOTRE_DOMAINE>/mail;
         }
   
- #créer un nouveau fichier appelé "<IP_SERVEUR>.conf"
+créer un nouveau fichier appelé "<IP_SERVEUR>.conf"
   
 ## <IP_SERVEUR>
   
@@ -158,8 +154,6 @@ Dans le fichier /etc/nginx/conf.d/local.conf,
 il est conseillé de séparer le fichier en plusieurs blocs, dont un bloc est un sous domaine.
 on découpe le fichier "local.conf" par bloc, chaque bloc étant un sous-domaine :
 
-VOIR SCREEN
-
 `touch <IP_SERVEUR>.conf`
   
 `touch www.<VOTRE_DOMAINE>.conf`
@@ -181,7 +175,7 @@ VOIR SCREEN
 
 #    IMPORTATION CERTIFICAT TLS         #
 
- on l'importe dans le magasin des certificats du serveur pour que le cadenas devienne vert même en auto-signé
+on l'importe dans le magasin des certificats du serveur pour que le cadenas devienne vert même en auto-signé
   
 `cp ../user-data/ssl/box.projetmailamp.site-selfsigned-20220314.pem /usr/local/share/ca-certificates/`
   
@@ -213,7 +207,7 @@ Description de la commande qui suit :
 Dans le cron de MIAB "/etc/cron.d/mailinabox-nightly", remplacez la dernière ligne par :
 30 03 01 */3 *  root    (cd /root/mailinabox && management/daily_tasks.sh) && cp /etc/nginx/local.txt /etc/nginx/conf.d/local.conf && apt update -y && apt upgrade -y
 
-# permet d'afficher le DKIM généré
+permet d'afficher le DKIM généré
 `cat /home/user-data/mail/dkim/mail.txt`
 dns_update --force
   
